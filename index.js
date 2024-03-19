@@ -3,8 +3,7 @@ let form = document.querySelector("form");
 let li = document.createElement("li");
 let ul = document.querySelector("ul");
 
-button.addEventListener("click",event =>
-    {
+button.addEventListener("click",event => {
     event.preventDefault();
     let text = document.getElementById('task1').value;
     let li = document.createElement("li");
@@ -13,7 +12,12 @@ button.addEventListener("click",event =>
     createButton.innerText="delete";
     li.innerText = text;
     ul.append(li);
-    li.append(createButton);
-    
-
+    li.append(createButton)
+    createButton.addEventListener("click",()=>{
+        createButton.parentNode.remove()
+    })
+    li.addEventListener("click",e=>{
+        li.innerText.style.textDecoration = "line-through";
+    })
+    form.reset()
 })
